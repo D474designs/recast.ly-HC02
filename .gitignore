@@ -12,3 +12,5 @@ src/config/youtube.js
 compiled/config/youtube.js
 node-modules
 package-lock.json
+include
+node
