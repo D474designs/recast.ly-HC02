@@ -1,4 +1,4 @@
-var App = (props) => (
+var App = () => (
   <div>
     <nav className="navbar">
       <div className="col-md-6 offset-md-3">
@@ -10,7 +10,7 @@ var App = (props) => (
       <VideoPlayer/>
       </div>
       <div className="col-md-5">
-      <VideoList/>
+      <VideoList reactVideos={exampleVideoData}/>
       </div>
     </div>
   </div>
