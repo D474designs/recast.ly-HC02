@@ -45,6 +45,27 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.getYouTubeVideos('Jaime Orlando Cazares Valdez');
+  }
+
+  {/*
+  // Helper Function
+  */}
+
+  getYouTubeVideos(query) {
+    var options = {
+    key: this.props.API_KEY,
+    query: query
+    }
+    this.props.searchYouTube(options, (videos) => {
+      this.setState({
+      videos: videos,
+      currentVideo: videos[0]
+      });
+    });
+  }
+
   handleVideoListEntryTitleClick(video) {
     this.setState({
       currentVideo: video
@@ -54,7 +75,7 @@ class App extends React.Component {
   render() {
     return(
       <div>
-        <Nav />
+        <Nav handleSearchInputChange={this.getYouTubeVideos.bind(this)} />
         <div className="col-md-7">
           <VideoPlayer video={this.state.currentVideo} />
         </div>
